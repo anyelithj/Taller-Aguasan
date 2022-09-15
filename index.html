@@ -16,7 +16,19 @@
         </div>
         <div class="row">
             <div class="col">
-                <input v-model="estrato" type="text" placeholder="Estrato">
+                <select
+                    v-model="opcionEstrato"
+                    class="col-12 rounded-1 text-center bg-light"
+                >
+                <option
+                    v-for="(item,i) in estratos"
+                    v-text="item.estrato"
+                    class="rounded-4 text-center"
+                ></option>
+            </select>
+            <span class="error text-center" style="color: red" v-if="errors"
+              >Seleccione una opción valida.</span
+            >
             </div>
             <div class="col">
                 <input v-model="metros" type="text" placeholder="Metros Consumidos">
@@ -24,7 +36,7 @@
         </div>
         <div class="row">
             <div class="col d-grid my-5">
-                <button class="btn btn-primary text-white text-center">CALCULAR FACTURA</button>
+                <button @click="agregarUsuario" class="btn btn-primary text-white text-center">CALCULAR FACTURA</button>
             </div>
         </div>
        </form> 
